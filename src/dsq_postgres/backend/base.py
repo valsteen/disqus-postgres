@@ -51,6 +51,8 @@ class CursorWrapper(object):
     def executemany(self, sql, paramlist=()):
         return self.cursor.executemany(sql, paramlist)
 
+    def __iter__(self):
+        return iter(self.cursor)
 
 class DatabaseWrapper(DatabaseWrapper):
     def __init__(self, *args, **kwargs):
