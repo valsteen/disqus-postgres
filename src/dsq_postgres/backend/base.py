@@ -10,7 +10,7 @@ import psycopg2 as Database
 
 # Some of these imports are unused, but they are inherited from other engines
 # and should be available as part of the backend ``base.py`` namespace.
-from django.db.backends.postgresql_psycopg2.base import DatabaseWrapper, \
+from django.db.backends.postgresql_psycopg2.base import DatabaseWrapper as BaseDatabaseWrapper, \
   DatabaseFeatures, DatabaseOperations, DatabaseClient, DatabaseCreation, \
   DatabaseIntrospection
 
@@ -54,7 +54,7 @@ class CursorWrapper(object):
     def __iter__(self):
         return iter(self.cursor)
 
-class DatabaseWrapper(DatabaseWrapper):
+class DatabaseWrapper(BaseDatabaseWrapper):
     def __init__(self, *args, **kwargs):
         super(DatabaseWrapper, self).__init__(*args, **kwargs)
         ofeatures = self.features
