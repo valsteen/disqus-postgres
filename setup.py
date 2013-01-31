@@ -30,7 +30,7 @@ tests_require = [
 
 requires = [
     'psycopg2',
-    'Django>=1.2,<1.4',
+    'Django>=1.2,<1.5',
 ]
 
 entry_points = {
